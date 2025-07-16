@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: attendee-mcp-server
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run health
+    envVars:
+      - key: MEETING_BOT_API_URL
+        value: https://your-attendee-server.onrender.com
+      - key: MEETING_BOT_API_KEY
+        sync: false
+    healthCheckPath: /health
+    plan: free 
